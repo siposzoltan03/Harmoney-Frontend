@@ -1,4 +1,5 @@
 import React from "react";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import "./App.css";
 import SideBar from "../../components/Navbar/Navbar";
 import TopBar from "react-bootstrap/Nav";
@@ -16,23 +17,28 @@ import "animate.css";
 
 function App() {
     return (
-        <TransactionProvider>
-        <UserProvider>
-        <ModalVisibilityContextProvider>
-            <div className="App">
-                <ReactNotification/>
-                <TopBar className="justify-content-center ml-32">
-                    <h1 id="topBar-title">Harmoney</h1>
-                    <User/>
-                </TopBar>
-                <SideBar/>
-                <Content/>
-                <ModalContainer/>
-                <Footer className="ml-32"/>
-            </div>
-        </ModalVisibilityContextProvider>
-        </UserProvider>
-        </TransactionProvider>
+        <Router>
+            <TransactionProvider>
+            <UserProvider>
+            <ModalVisibilityContextProvider>
+                <div className="App">
+                    <ReactNotification/>
+                    <TopBar className="justify-content-center ml-32">
+                        <h1 id="topBar-title">Harmoney</h1>
+                        <User/>
+                    </TopBar>
+                    <SideBar/>
+                    <Content/>
+                    <ModalContainer/>
+                    <Footer className="ml-32"/>
+                </div>
+            </ModalVisibilityContextProvider>
+            </UserProvider>
+            </TransactionProvider>
+            <Route exact path="/confirmation">
+
+            </Route>
+        </Router>
     );
 }
 
